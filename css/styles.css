@@ -1,6 +1,11 @@
 /* Estilos personalizados para o sistema de locadora de veículos */
+.container {
+    background-color: #e3ddd4;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
 
 /* Estilos para a página de login */
+
 .login-container {
     max-width: 400px;
     margin: 100px auto;
@@ -66,16 +71,21 @@
     text-align: center;
 }
 
+.imagem {
+    width: 50px;
+    border-radius: 50px;
+}
+
 /* Estilos para a barra de usuário */
 .user-info {
-    background-color: #000; /* Cor preta, como na imagem */
+    background-color: #a39b6c;
     padding: 0.5rem 1rem;
     border-radius: 4px;
-    color: #fff; /* Texto branco */
+    color: #000000; /* Texto preto */
 }
 
 .user-icon i {
-    color: #fff; /* Ícone branco */
+    color: #000000; /* Ícone preto */
 }
 
 .welcome-text {
@@ -84,16 +94,16 @@
 }
 
 .welcome-text strong {
-    background-color: #fff; /* Fundo branco para o username, como na imagem */
-    color: #000; /* Texto preto */
+    background-color: #055137; /* Fundo verde para o username, como na imagem */
+    color: #ffffff; /* Texto branco */
     padding: 0.25rem 0.5rem;
     border-radius: 4px;
     display: inline-block;
 }
 
 .btn-outline-danger {
-    border-color: #fff; /* Borda branca para o botão Sair */
-    color: #fff; /* Texto branco */
+    border-color: #000000; /* Borda preta para o botão Sair */
+    color: #000000; /* Texto preto */
 }
 
 .btn-outline-danger:hover {
@@ -117,6 +127,16 @@
 .same-height-row .card-body {
     flex: 1;
 }
+
+.card-body {
+    background-color: #bdbdbf;
+}
+
+.card-header {
+    background-color: #055137;
+    color: #fff;
+}
+
 
 /* Responsividade */
 @media (max-width: 768px) {

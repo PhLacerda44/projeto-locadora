@@ -9,17 +9,16 @@
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
     <!-- Estilos customizados -->
-    <link href="css/styles.css" rel="stylesheet"> <!-- You might need to adjust styles.css -->
+    <link href="css/styles.css" rel="stylesheet">
     <style>
-        /* Optional: Adjust spacing for action items */
         .action-wrapper .booking-group > *,
         .action-wrapper .reserved-info > * {
             margin-bottom: 0.5rem;
         }
         .action-wrapper .booking-group input[type="date"],
         .action-wrapper .booking-group input[type="text"] {
-            max-width: 180px; /* Limit width of date/color inputs in table */
-            display: inline-block; /* Or block */
+            max-width: 180px;
+            display: inline-block;
             margin-right: 5px;
         }
         .reserved-info span {
@@ -59,7 +58,7 @@
         <!-- Linha para formulários (adicionar pacote e reservar/verificar) -->
         <div class="row same-height-row">
             <!-- Formulário para adicionar Pacote de Festa (visível apenas para admin) -->
-            <div class="col-md-6 admin-only" id="secao-adicionar-pacote"> <!-- Added admin-only class -->
+            <div class="col-md-6 admin-only" id="secao-adicionar-pacote">
                 <div class="card h-100">
                     <div class="card-header">
                         <h4 class="mb-0"><i class="bi bi-plus-circle me-2"></i>Adicionar Novo Pacote de Festa</h4>
@@ -290,27 +289,31 @@
     <!-- Scripts customizados -->
     <script src="js/scripts.js"></script>
     <script>
-      
         document.getElementById('ano-atual').textContent = new Date().getFullYear();
 
-     
-        const isAdmin = document.getElementById('username-display')?.textContent.toLowerCase() === 'admin'; // Simple check
-        const adminOnlyElements = document.querySelectorAll('.admin-only');
+        //**INSECURE: Always allow access to sections**
+        const isAdmin = true;
 
-        if (!isAdmin) {
-            adminOnlyElements.forEach(el => {
-                 
+        //** INSECURE : Just display Admin elements or not**
+        const adminOnlyElements = document.querySelectorAll('.admin-only');
+         adminOnlyElements.forEach(el => {
                 if (el.id === 'secao-adicionar-pacote') {
-                     el.style.display = 'none';
-                   
-                     document.getElementById('secao-reservar')?.classList.replace('col-md-6', 'col-md-12');
+                     el.style.display = isAdmin ? 'block' : 'none';
+                     document.getElementById('secao-reservar')?.classList.replace('col-md-6', isAdmin ? 'col-md-6' : 'col-md-12');
                 } else {
-                    el.style.display = 'none'; 
+                    el.style.display = isAdmin ? 'block' : 'none';
                 }
             });
-        } else {
-             
-        }
+
+         document.addEventListener('DOMContentLoaded', function() {
+           const username = localStorage.getItem('username');
+           if (username) {
+             document.getElementById('username-display').textContent = username;
+           } else {
+            // You can set a redirect condition,
+             window.location.href = 'login.html' // very important. Add it as soon as possible
+           }
+         });
     </script>
 </body>
 </html>
