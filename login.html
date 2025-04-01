@@ -3,104 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Sistema de Locadora</title>
-    <!-- Bootstrap CSS -->
+    <!-- Title updated for events -->
+    <title>Login - Sistema de Eventos</title>
+
+    <!-- Bootstrap CSS (Keeping the same version) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
+    <!-- Bootstrap Icons (Keeping the same version) -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-    <!-- Estilos customizados -->
+    <!-- Custom Styles (Assuming you might want custom styles later) -->
     <link href="css/styles.css" rel="stylesheet">
+
+    <!-- Inline style for simple green override if styles.css isn't heavily used -->
+    <style>
+        /* Optional: Define a custom green if Bootstrap's 'success' isn't desired */
+        /* .bg-custom-green { background-color: #2E8B57; } */
+        /* .btn-custom-green { background-color: #2E8B57; border-color: #2E8B57; } */
+        /* .btn-custom-green:hover { background-color: #27774c; border-color: #27774c; } */
+
+        /* Make forgot password link less prominent */
+        .forgot-password-link a {
+            font-size: 0.85rem;
+            text-decoration: none;
+        }
+         .forgot-password-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body class="bg-light">
-   
 
-
-    <!DOCTYPE html>
-<html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Sistema de Locadora</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-        rel="stylesheet">
-    <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-    <!-- Estilos customizados -->
-    <link href="css/styles.css" rel="stylesheet">
-</head>
-
-<body class="bg-light">
-    <div class="login-container">
+    <div class="login-container container mt-5"> <!-- Added mt-5 for spacing -->
         <div class="card shadow">
-            <!-- Cabecalho do card de login -->
-            <div class="card-header bg-primary text-white">
-                <h4 class="mb-0"><i class="bi bi-person-lock me-2"></i>Login</h4>
+            <!-- Card Header - Changed to green (bg-success) and updated text -->
+            <div class="card-header bg-success text-white">
+                <!-- Icon can be changed, e.g., bi-calendar-event or bi-ticket-perforated -->
+                <h4 class="mb-0"><i class="bi bi-calendar-event me-2"></i>Acesso ao Sistema de Eventos</h4>
             </div>
-            <!-- Corpo do card de login -->
-            <div class="card-body">
-                <!-- Espaço para mensagens de erro (vazio por padrao) -->
-                <div id="errorMessage" class="alert alert-danger d-none">Mensagem de erro
-                    aparecerá aqui</div>
 
-                <!-- Formulário de login -->
-                <form id="loginForm" method="post" action="index.html">
-                    <!-- Campo de usuário -->
+            <!-- Card Body -->
+            <div class="card-body">
+                <!-- Error Message Area (Kept the same) -->
+                <div id="errorMessage" class="alert alert-danger d-none" role="alert">
+                    Mensagem de erro aparecerá aqui
+                </div>
+
+                <!-- Login Form -->
+                <form id="loginForm" method="post" action="process_login.php"> <!-- Changed action target -->
+
+                    <!-- Username Field (Kept 'Usuário', could be 'Email') -->
                     <div class="mb-3">
                         <label for="username" class="form-label">
-                            <i class="bi bi-person me-1"></i>Usuário
+                            <i class="bi bi-person me-1"></i>Usuário ou Email
                         </label>
-                        <input type="text" id="username" name="username"
-                            class="form-control">
+                        <input type="text" class="form-control" id="username" name="username" required placeholder="Digite seu usuário ou email">
                     </div>
-                    <!-- Campo de senha -->
+
+                    <!-- Password Field -->
                     <div class="mb-3">
                         <label for="password" class="form-label">
                             <i class="bi bi-key me-1"></i>Senha
                         </label>
-                        <input type="password" id="password" name="password"
-                            class="form-control">
+                        <input type="password" class="form-control" id="password" name="password" required placeholder="Digite sua senha">
                     </div>
-                    <!-- Botão de envio -->
-                    <button type="submit" class="btn btn-primary w-100">
+
+                    <!-- Forgot Password Link -->
+                    <div class="text-end mb-3 forgot-password-link">
+                        <a href="forgot_password.php">Esqueci minha senha</a>
+                        <!-- NOTE: forgot_password.php needs to be created -->
+                    </div>
+
+
+                    <!-- Submit Button - Changed to green (btn-success) -->
+                    <button type="submit" class="btn btn-success w-100">
                         <i class="bi bi-box-arrow-in-right me-1"></i>Entrar
                     </button>
                 </form>
 
-                <!-- Seção com a dica de login -->
-                <div class="login-tip mt-4">
-                    <h5><i class="bi bi-info-circle me-2"></i>Acesso ao Sistema</h5>
-                    <p>Utilize os seguintes dados para acessar o sistema:</p>
-                    <p><strong>Administrador:</strong> <code>admin</code> /
-                        <code>admin123</code> - Acesso total ao sistema</p>
-                    <p><strong>Usuário:</strong> <code>usuario</code> / <code>user123</code>
-                        - Acesso limitado</p>
+                <!-- Login Hint Section - Updated for event context -->
+                <div class="login-tip mt-4 p-3 border rounded bg-light"> <!-- Added some styling -->
+                    <h5 class="text-success"><i class="bi bi-info-circle me-2"></i>Dica de Acesso</h5>
+                    <p class="small mb-1">Utilize os seguintes dados para testar o sistema:</p>
+                    <p class="small mb-1"><strong>Organizador:</strong> <code>organizador</code> / <code>eventoAdmin123</code> - Acesso total.</p>
+                    <p class="small mb-0"><strong>Convidado:</strong> <code>convidado</code> / <code>festaUser456</code> - Acesso limitado.</p>
                 </div>
             </div>
-            <!-- Rodapé do card de login -->
+
+            <!-- Card Footer - Updated text -->
             <div class="card-footer text-center">
-                <small class="text-muted">Sistema de Locadora de Veículos © <span
-                        id="ano-atual">2024</span></small>
+                <small class="text-muted">© <span id="ano-atual"></span> Sistema de Gerenciamento de Festas e Eventos</small>
             </div>
         </div>
     </div>
 
-    <!-- Bootstrap JS -->
+    <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom Scripts (for potential dynamic year or form validation) -->
+    <script>
+        // Simple script to set the current year in the footer
+        document.getElementById('ano-atual').textContent = new Date().getFullYear();
 
-    <!-- Scripts customizados -->
-    <script src="js/scripts.js"></script>
-</body>
+        // Basic form validation example (optional)
+        // const loginForm = document.getElementById('loginForm');
+        // loginForm.addEventListener('submit', function(event) {
+        //     if (!loginForm.checkValidity()) {
+        //         event.preventDefault();
+        //         event.stopPropagation();
+        //         // You might want to display a generic error or let Bootstrap handle it
+        //     }
+        //     loginForm.classList.add('was-validated');
+        // }, false);
+    </script>
+    <!-- Link to external custom scripts if needed -->
+    <!-- <script src="js/scripts.js"></script> -->
 
-</html>
-
-    
-    
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
-    <!-- Scripts customizados -->
-    <script src="js/scripts.js"></script>
 </body>
 </html>
