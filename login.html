@@ -61,23 +61,23 @@
         document.getElementById('ano-atual').textContent = new Date().getFullYear();
 
         document.getElementById('loginForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent form from submitting (reloading page)
+            event.preventDefault(); // recarregar página
 
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
             const errorMessage = document.getElementById('errorMessage');
 
-            // **SECURITY WARNING:** These credentials are visible in the code!
+            // MENSAGEM DE SEGURANÇA
             if ((username === 'organizador' && password === 'eventoAdmin123') ||
                 (username === 'convidado' && password === 'festaUser456')) {
-                // Successful Login - Store User in Local Storage so other pages can know this user is logged in
+                // Login correto
                  localStorage.setItem('username', username);
 
-                // Successful Login - Redirect
+                // Login correto - Redirecionar
                 window.location.href = 'reservas.html'; // Redirect to reservations page
             } else {
-                // Failed Login - Show Error Message
-                errorMessage.classList.remove('d-none'); // Make the error message visible
+                // Login incorreto - Aparecer mensagem de erro
+                errorMessage.classList.remove('d-none'); // Fazer a mensagem de erro ser visivel 
             }
         });
     </script>

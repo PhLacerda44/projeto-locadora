@@ -14,7 +14,7 @@ if (!isset($_SESSION['user_id'])) {
     exit();
 }
 
-// Conexão com o banco de dados (ajuste conforme seu banco)
+// Conexão com o banco de dados
 $conn = new mysqli("localhost", "root", "", "projeto_locadora");
 if ($conn->connect_error) {
     die("Erro de conexão: " . $conn->connect_error);

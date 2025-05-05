@@ -103,11 +103,11 @@ function renderReservationsTable() {
     addTableActionListeners();
 }
 
-// Function to add listeners to dynamically created buttons
+// Função de adicionar ouvintes a tabela
 function addTableActionListeners() {
     const deleteButtons = document.querySelectorAll('.delete-reservation-btn');
     deleteButtons.forEach(button => {
-        // Remove existing listener to prevent duplicates if called multiple times
+        // Remova o ouvinte existente para evitar duplicatas se forem chamadas várias vezes
         button.replaceWith(button.cloneNode(true));
     });
      // Reselecione os botões após a clonagem
@@ -158,7 +158,6 @@ function handleCancelReservation(event) {
 }
 
 
-// --- Main Execution on DOMContentLoaded ---
 document.addEventListener('DOMContentLoaded', () => {
     // --- Gerenciamento de login/usuário existente ---
     const username = localStorage.getItem('username');
