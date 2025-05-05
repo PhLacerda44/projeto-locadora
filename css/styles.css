@@ -1,165 +1,147 @@
-/* Estilos personalizados para o sistema de locadora de veículos */
-.container {
-    background-color: #e3ddd4;
+/* Estilos gerais */
+body {
+    background-color: #e3ddd4; /* Cor de fundo */
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-/* Estilos para a página de login */
+/* Estilos para a página principal (reservas.html) */
 
-.login-container {
-    max-width: 400px;
-    margin: 100px auto;
-}
-
-.card-footer {
-    background-color: #f8f9fa;
-    padding: 1rem;
-}
-
-.login-tip {
-    border-left: 4px solid #0d6efd;
-    padding: 15px;
-    background-color: rgba(13, 110, 253, 0.1);
-    border-radius: 0 4px 4px 0;
-    margin-top: 15px;
-}
-
-.login-tip h5 {
-    color: #0d6efd;
-    margin-bottom: 10px;
-}
-
-.login-tip p {
-    margin-bottom: 5px;
-}
-
-.login-tip code {
-    background: #fff;
-    padding: 2px 4px;
-    border-radius: 4px;
-    color: #333;
-}
-
-/* Estilos para a página principal (dashboard) */
-.action-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    justify-content: flex-start;
-}
-
-.btn-group-actions {
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-}
-
-.rent-group {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    order: 2;
-}
-
-.delete-btn {
-    order: 1;
-}
-
-.days-input {
-    width: 60px !important;
-    padding: 0.25rem 0.5rem;
-    text-align: center;
-}
-
+/* Imagem logo */
 .imagem {
     width: 50px;
-    border-radius: 50px;
+    height: 50px; /* Definir altura da imagem */
+    border-radius: 50%; /* Deixar a logo em formato de circulo */
+    vertical-align: middle; /* Alinhar a imagem com o texto */
 }
 
-/* Estilos para a barra de usuário */
+/* Barra de informações do usuário */
 .user-info {
     background-color: #a39b6c;
     padding: 0.5rem 1rem;
     border-radius: 4px;
-    color: #000000; /* Texto preto */
+    color: #000000;
 }
 
 .user-icon i {
-    color: #000000; /* Ícone preto */
+    color: #000000;
 }
 
 .welcome-text {
     margin-right: 1rem;
     font-size: 1rem;
+    color: #000000; /* Cor do texto */
 }
 
 .welcome-text strong {
-    background-color: #055137; /* Fundo verde para o username, como na imagem */
-    color: #ffffff; /* Texto branco */
+    background-color: #055137;
+    color: #ffffff;
     padding: 0.25rem 0.5rem;
     border-radius: 4px;
     display: inline-block;
 }
 
 .btn-outline-danger {
-    border-color: #000000; /* Borda preta para o botão Sair */
-    color: #000000; /* Texto preto */
+    border-color: #000000;
+    color: #000000;
+    background-color: transparent; 
 }
 
 .btn-outline-danger:hover {
-    background-color: #fff; /* Fundo branco ao passar o mouse */
-    color: #dc3545; /* Cor do texto ao hover (vermelho Bootstrap danger) */
-    border-color: #fff;
+    background-color: #000000; /* Fundo preto */
+    color: #ffffff; /* Texto branco no botão */
+    border-color: #000000;
+}
+.btn-outline-danger i {
+    color: inherit; /* Fazer a cor do ícone seguir a cor do texto do botão */
 }
 
-/* Estilos para cartões de mesma altura */
-.same-height-row > [class*='col'] {
-    display: flex;
-    flex-direction: column;
-}
 
-.same-height-row .card {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.same-height-row .card-body {
-    flex: 1;
+/* Estilo dos cards */
+.card-header {
+    background-color: #055137;
+    color: #fff;
 }
 
 .card-body {
     background-color: #bdbdbf;
 }
 
-.card-header {
-    background-color: #055137;
-    color: #fff;
+.card {
+    border: none; /* Tirar borda do card */
+}
+
+/* Estilos de ação de tabela */
+.action-wrapper {
+    display: flex; /* Usar flex para alinhar */
+    justify-content: flex-start; /* Alinhar o conteúdo desde o começo */
+    width: 100%;
+}
+
+.action-wrapper .btn-group-actions {
+     display: flex;
+     flex-direction: column; /* Deixar o elemento vertical */
+     gap: 0.5rem; /* Espaço entre os elementos */
+     width: 100%; /* Largura total */
+     align-items: stretch; /* Faça os itens se esticarem para preencher a largura */
+}
+
+/* Entradas de estilo dentro das ações da tabela */
+.action-wrapper .booking-group input[type="date"],
+.action-wrapper .booking-group input[type="text"] {
+    max-width: none; /* Remover max-width se definido em outro lugar */
+    width: 100%; /* Faça com que as entradas ocupem largura total */
+    margin-bottom: 0.5rem; /* Espaço abaixo das entradas */
+}
+
+.action-wrapper .booking-group button,
+.action-wrapper .reserved-actions button {
+    width: 100%; /* Fazer os botões preencherem a largura total */
+    text-align: left !important; /* Alinhar botão ao texto da esquerda */
+     padding-left: 0.75rem; /* Preenchimento no lado esquerdo */
+}
+
+/* Garanta que os emblemas tenham bom contraste e preenchimento */
+.badge {
+    padding: 0.4em 0.6em;
+    font-size: 0.85em;
+}
+
+/* Linhas da mesma altura */
+.same-height-row > [class*='col'] {
+    display: flex;
+    flex-direction: column;
+}
+
+.same-height-row .card {
+    flex: 1; /* Permitir que o cartão cresça */
+    display: flex;
+    flex-direction: column;
+}
+
+.same-height-row .card-body {
+    flex-grow: 1; /* Permitir que o corpo ocupe o espaço restante */
+}
+
+/* Footer */
+footer {
+    padding-top: 1rem;
+    border-top: 1px solid #ccc; /* Adicionar linha acima do rodapé */
 }
 
 
 /* Responsividade */
 @media (max-width: 768px) {
+    /* Empilhe os elementos de informação do usuário verticalmente, se necessário */
+    .user-info {
+        width: 100%; /* Faça com que as informações do usuário ocupem toda a largura em telas pequenas */
+        margin-top: 0.5rem; /* Adicione espaço acima se ele for ajustado abaixo do título */
+    }
+
+    h1 {
+        font-size: 1.5rem; /* Ajustar o tamanho do título */
+    }
+
+
     .action-wrapper {
-        flex-direction: column;
-        align-items: stretch;
-    }
-    
-    .btn-group-actions {
-        flex-direction: column;
-    }
-    
-    .rent-group {
-        order: 1;
-        width: 100%;
-    }
-    
-    .delete-btn {
-        order: 2;
-        width: 100%;
-    }
-    
-    .days-input {
-        width: 100% !important;
     }
 }
